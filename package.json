@@ -1,0 +1,32 @@
+{
+  "name": "mips-language-support",
+  "displayName": "MIPS highlighting support",
+  "description": "Provides syntax highlighting",
+  "version": "0.0.1",
+  "publisher": "Astaky",
+  "engines": {
+    "vscode": "^1.94.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "mips",
+      "aliases": ["MIPS Assembler", "mips", "MIPS"],
+      "extensions": [".s",".mips",".spim",".asm"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "mips",
+      "scopeName": "source.mips",
+      "path": "./syntaxes/mips.tmLanguage"
+    }],
+    "snippets": [
+      {
+        "language": "mips",
+        "path": "./snippets/snippets.json"
+      }
+    ]
+  }
+}
