@@ -85,25 +85,25 @@
 	},
 	"inputDouble": {
 		"prefix": "inputDouble",
-		"body": "addi \\$v0, \\$0, 7\t\t# system call #7 - input double\nsyscall\t\t\t\t# execute\nmove ${1:variable}, \\$v0\t\t# $1 = input value",
+		"body": "addi \\$v0, \\$0, 7\t\t# system call #7 - input double\nsyscall\t\t\t\t# execute\nmov.d ${1:variable}, \\$f0\t\t# $1 = input double\n",
 		"description": "System call 7: Read Double",
 		"scope": "source.mips"
 	},
 	"inputFloat": {
 		"prefix": "inputFloat",
-		"body": "addi \\$v0, \\$0, 6\t\t# system call #6 - input float\nsyscall\t\t\t\t# execute",
+		"body": "addi \\$v0, \\$0, 6\t\t# system call #6 - input float\nsyscall\t\t\t\t# execute\nmov.s ${1:variable}, \\$f0\t\t# $1 = input float\n",
 		"description": "System call 6: Read float",
 		"scope": "source.mips"
 	},
 	"inputInt": {
 		"prefix": "inputInt",
-		"body": "addi \\$v0, \\$0, 5\t\t# system call #5 - input int\nsyscall\t\t\t\t# execute",
+		"body": "addi \\$v0, \\$0, 5\t\t# system call #5 - input int\nsyscall\t\t\t\t# execute\nmove ${1:variable}, \\$v0\t\t# $1 = input int\n",
 		"description": "System call 5: Read int",
 		"scope": "source.mips"
 	},
 	"inputString": {
 		"prefix": "inputString",
-		"body": "addi \\$v0, \\$0, 8\t\t# system call #8 - input string\nsyscall\t\t\t\t# execute",
+		"body": "addi \\$v0, \\$0, 8\t\t# system call #8 - input string\nla \\$a0, ${1:buffer}\t\t#buffer address\nli \\$a1, ${2:buffSize}\t\t\t#max buffer size\nsyscall\t\t\t\t# execute\n",
 		"description": "System call 8: input string",
 		"scope": "source.mips"
 	},
@@ -151,7 +151,7 @@
 	},
 	"move": {
 		"prefix": "move",
-		"body": "move ${1:\\$t0}, ${2:\\$t1}\t\t# $1 = $2",
+		"body": "move ${1:\\$t0}, ${2:\\$t1}\t\t# $1 = $2\n",
 		"description": "move",
 		"scope": "source.mips"
 	},
@@ -181,25 +181,25 @@
 	},
 	"printDouble": {
 		"prefix": "printDouble",
-		"body": "addi \\$v0, \\$0, 3\t\t# system call #3 - print double\nmov.d \\$f12, ${1:variable}\nsyscall\t\t\t\t# execute",
+		"body": "addi \\$v0, \\$0, 3\t\t# system call #3 - print double\nmov.d \\$f12, ${1:variable}\nsyscall\t\t\t\t# execute\n",
 		"description": "System call 3: print double",
 		"scope": "source.mips"
 	},
 	"printFloat": {
 		"prefix": "printFloat",
-		"body": "addi \\$v0, \\$0, 2\t\t# system call #2 - print float\nmov.s \\$f12, ${1:variable}\nsyscall\t\t\t\t# execute",
+		"body": "addi \\$v0, \\$0, 2\t\t# system call #2 - print float\nmov.s \\$f12, ${1:variable}\nsyscall\t\t\t\t# execute\n",
 		"description": "System call 2: print float",
 		"scope": "source.mips"
 	},
 	"printInt": {
 		"prefix": "printInt",
-		"body": "addi \\$v0, \\$0, 1\t\t# system call #1 - print int\nadd \\$a0, \\$0, ${1:variable}\nsyscall\t\t\t\t# execute",
+		"body": "addi \\$v0, \\$0, 1\t\t# system call #1 - print int\nadd \\$a0, \\$0, ${1:variable}\nsyscall\t\t\t\t# execute\n",
 		"description": "System call 1: print int",
 		"scope": "source.mips"
 	},
 	"printString": {
 		"prefix": "printString",
-		"body": "addi \\$v0, \\$0, 4\t\t# system call #4 - print string\nla \\$a0, ${1:string}\nsyscall\t\t\t\t# execute",
+		"body": "addi \\$v0, \\$0, 4\t\t# system call #4 - print string\nla \\$a0, ${1:string}\nsyscall\t\t\t\t# execute\n",
 		"description": "System call 4: print string",
 		"scope": "source.mips"
 	},
@@ -277,7 +277,7 @@
 	},
 	"macro":{
 		"prefix": "macro",
-		"body": ".macro ${1:NAME} ${2:params}\n${3:body}\n.end_macro",
+		"body": ".macro ${1:NAME} \\$${2:params}\n${3:body}\n.end_macro\n",
 		"description": "create macro",
 		"scope": "source.mips"
 	}
