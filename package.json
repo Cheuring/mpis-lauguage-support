@@ -11,21 +11,37 @@
     "type": "git",
     "url": "https://github.com/Cheuring/mpis-lauguage-support"
   },
+  "bugs": {
+    "url": "https://github.com/Cheuring/mpis-lauguage-support/issues"
+  },
   "categories": [
     "Programming Languages"
   ],
   "contributes": {
-    "languages": [{
+    "languages": [
+      {
       "id": "mips",
-      "aliases": ["MIPS Assembler", "mips", "MIPS"],
-      "extensions": [".s",".mips",".spim",".asm"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "mips",
-      "scopeName": "source.mips",
-      "path": "./syntaxes/mips.tmLanguage"
-    }],
+        "aliases": [
+          "MIPS Assembler",
+          "mips",
+          "MIPS"
+        ],
+        "extensions": [
+          ".s",
+          ".mips",
+          ".spim",
+          ".asm"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "mips",
+        "scopeName": "source.mips",
+        "path": "./syntaxes/mips.tmLanguage"
+      }
+    ],
     "snippets": [
       {
         "language": "mips",
